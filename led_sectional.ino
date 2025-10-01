@@ -490,7 +490,6 @@ bool getMetars(){
       if ((c = client.read()) >= 0) {
         yield(); // Otherwise the WiFi stack can crash
         currentLine += c;
-        if (c == '\n') currentLine = "";
         if (currentLine.endsWith("<raw_text>")) { // start paying attention
              if (!led.empty()) {                  // we assume we are recording results at each change in airport
                for (vector<unsigned short int>::iterator it = led.begin(); it != led.end(); ++it)  {
